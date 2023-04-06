@@ -3,8 +3,9 @@
 Introductory paragraph (replace this with your text)
 
 ## Summary
+^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this article, we'll be discussing a regex expression that is commonly used for validating email addresses. Briefly, this expression seeks a string of letters or numbers, followed by an '@' symbol, another set of letters, a dot, and finally, a string of 2-6 characters in length.
 
 ## Table of Contents
 
@@ -33,37 +34,16 @@ else:
 
 
 ### Anchors
-Anchors are used to match patterns that appear at the beginning or end of a line or word.
+^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
-The caret (^) is used to match the beginning of a line. For example, the pattern ^hello will match "hello" only if it appears at the beginning of a line.
+We'll be focusing on two anchors in this expression: the ^ and $ anchors. These anchors are typically used to indicate the beginning and end of a string. ^ - this anchor searches for the start of the string that matches the given criteria, $ - similarly, this anchor ensures that the end of the string adheres to the specified criteria.
 
-The dollar sign ($) is used to match the end of a line. For example, the pattern world$ will match "world" only if it appears at the end of a line.
-
-Example:
-const text = "hello world\nhello everyone\nworld hello";
-const pattern1 = /^hello/gm;
-const pattern2 = /world$/gm;
-
-console.log(text.match(pattern1)); // Output: ["hello", "hello"]
-console.log(text.match(pattern2)); // Output: ["world", "hello"]
 
 
 ### Quantifiers
-Quantifiers are used to match patterns that occur a specific number of times.
+^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/
 
-The asterisk (*) is used to match zero or more occurrences of a pattern. For example, the pattern go*d will match "gd", "god", "good", "gooood", and so on.
-
-The plus sign (+) is used to match one or more occurrences of a pattern. For example, the pattern go+d will match "god", "good", "gooood", and so on.
-
-Example:
-
-const text = "gd god good gooood";
-const pattern1 = /go*d/g;
-const pattern2 = /go+d/g;
-
-console.log(text.match(pattern1)); // Output: ["gd", "god", "good", "gooood"]
-console.log(text.match(pattern2)); // Output: ["god", "good", "gooood"]
-
+Quantifiers are elements within the regex expression that define the number of characters or expressions to match. In our example, we see two quantifiers: the + and the {} brackets. The + signifies that there should be at least one instance of the specified character(s) before the @ symbol. Additionally, {2, 6} indicates that the length of this group must be between 2 and 6 characters.
 
 
 ### OR Operator
@@ -79,47 +59,23 @@ let pattern = /cat|dog/g;
 console.log(text.match(pattern)); // Output: ["cat", "dog"];
 ```
 ## Character Classes
-
+Character classes allow the regex engine to match one of several characters. For instance, if we want the words grey and gray to both be considered matches, we could use the expression gr[ea]y.
 
 ### Flags
 
 ### Grouping and Capturing
-Grouping constructs are used to group patterns together and apply quantifiers or alternations to them as a group.
-
-Parentheses () are used to group patterns together. For example, the pattern (ab)* will match zero or more occurrences of the string "ab".
-
-The vertical bar (|) is used to match alternative patterns. For example, the pattern (dog|cat) will match either "dog" or "cat".
-
-Example:
-const text = "ab abab ababab dog cat";
-const pattern1 = /(ab)*/g;
-const pattern2 = /(dog|cat)/g;
-
-console.log(text.match(pattern1)); // Output: ["ab", "abab", "ababab", ""]
-console.log(text.match(pattern2)); // Output: ["dog", "cat"]
-
+Grouping and capturing involves enclosing a portion of an expression within parentheses or round brackets. In the provided example, grouping is utilized three times. ([a-z0-9_.-]+) inspects a group that may include lowercase letters, numbers, underscores, hyphens, or periods.
 
 
 ### Bracket Expressions
-Expressions using brackets can be utilized to match characters that fall into a particular set or range of characters.
+Bracket expressions employ [] to match user input to the specified characters inside the brackets. For instance, [hHiI] would match hi, hI, Hi, or HI. [a-z] This bracket expression matches any lowercase letter.
 
-To match a single character from a set of characters, square brackets [] are utilized. As an instance, the expression [abc] will match any of the letters "a", "b", or "c".
-
-By using the caret (^) within square brackets, it is possible to match any character that is not included in the set. For instance, the expression [^abc] will match any character except for the letters "a", "b", or "c".
-
-Example:
-```
-let text = "apple banana cherry";
-let pattern1 = /[aeiou]/g;
-let pattern2 = /[^aeiou]/g;
-
-console.log(text.match(pattern1)); // Output: ["a", "e", "a", "a"]
-console.log(text.match(pattern2)); // Output: ["p", "p", "l", " ", "b", "n", "n", " ", "c", "h", "r", "r", "y"]
-```
+### Greedy and Lazy Match
+In our given example, we use a greedy regex expression. By using the + quantifier, the engine is able to match one or more instances of the token it quantifies.
 
 ## Author
 
 The author is Evgheni Dimov. I found this assignment on regex to be surprisingly interesting, especially given the requirements. Although I initially struggled to find related material, the readme provided me with the necessary tutorial expectations. I was able to navigate through various resources and watch several videos on the internet to find relevant information about the use and impact of regex or 'Regular Expression' in coding. Overall, I feel that this assignment was quite impressive, and I am proud to have been able to complete it.
 
 Evgheni Dimov 
-https://github.com/Eugene-Dim
+https://github.com/Eugene-Dim 
